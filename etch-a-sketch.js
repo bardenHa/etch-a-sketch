@@ -29,3 +29,12 @@ for (let i = 0; i < gridSquareTarget.length ; i++) {
         console.log('enter');
     });
 }
+
+//Button functionality
+const button = document.getElementById('Reset-Button');
+
+button.addEventListener('click', e=> { 
+    for (let i = 0 ; i < gridSquareTarget.length ; i++){
+        gridSquareTarget[i].style.backgroundColor = 'white';
+    }
+});
