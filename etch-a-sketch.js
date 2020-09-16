@@ -17,3 +17,15 @@ for (i = 1 ; i <= amountOfSquares ; i++) {
     console.log(i)
     container.appendChild(gridSquare.cloneNode(true));
 }
+
+// Creating target for all grid squares 
+const gridSquareTarget = document.getElementsByClassName('grid-square');
+console.log(gridSquareTarget);
+
+// Functionality for changing grid colour upon mouse entry
+for (let i = 0; i < gridSquareTarget.length ; i++) {
+    gridSquareTarget[i].addEventListener('mouseenter', e => {
+        gridSquareTarget[i].style.backgroundColor = 'black';
+        console.log('enter');
+    });
+}
