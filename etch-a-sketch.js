@@ -1,5 +1,7 @@
 const container = document.querySelector('.grid-container');
 let numberOfSquares = 32;
+
+function createGrid (numberOfSquares) {
 let amountOfSquares = numberOfSquares*numberOfSquares;
 let widthOfSquares = ((document.getElementById('grid-container').clientWidth)/numberOfSquares);
 console.log(widthOfSquares);
@@ -17,9 +19,14 @@ for (i = 1 ; i <= amountOfSquares ; i++) {
     console.log(i)
     container.appendChild(gridSquare.cloneNode(true));
 }
+}
+
+createGrid(numberOfSquares);
 
 // Creating target for all grid squares 
-const gridSquareTarget = document.getElementsByClassName('grid-square');
+let gridSquareTarget = document.getElementsByClassName('grid-square');
+
+function draw (gridSquareTarget){
 console.log(gridSquareTarget);
 
 // Functionality for changing grid colour upon mouse entry
@@ -29,6 +36,9 @@ for (let i = 0; i < gridSquareTarget.length ; i++) {
         console.log('enter');
     });
 }
+}
+
+draw(gridSquareTarget); 
 
 //Button functionality
 const button = document.getElementById('Reset-Button');
@@ -37,4 +47,8 @@ button.addEventListener('click', e=> {
     for (let i = 0 ; i < gridSquareTarget.length ; i++){
         gridSquareTarget[i].style.backgroundColor = 'white';
     }
+    numberOfSquares = prompt('Width of canvas?', 64);
+    container.innerHTML = '' ;
+    createGrid(numberOfSquares);
+    draw(gridSquareTarget);
 });
